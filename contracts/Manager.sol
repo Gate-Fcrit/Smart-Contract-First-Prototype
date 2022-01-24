@@ -58,7 +58,7 @@ contract Manager {
 
     // funtion to register product and create code
     function registerProduct(string _code, string _brand, string _model,uint _status, string _description, string _manufactuerName, string _manufactuerLocation, string _manufactuerTimestamp) public  returns (uint) {
-        Product storage newCode;
+        Product newCode;
         newCode.brand = _brand;
         newCode.model = _model;
         newCode.status = _status;
@@ -76,7 +76,7 @@ contract Manager {
         if (customerArr[_hashedEmail].isValue) {
             return false;
         }
-        customer storage newCustomer;
+        customer newCustomer;
         newCustomer.name = _name;
         newCustomer.phone = _phone;
         newCustomer.isValue = true;
@@ -87,7 +87,7 @@ contract Manager {
     // funtion to register seller
 
     function registerSeller(string _hashedEmail, string _sellerName,string _sellerLocation) public payable returns (uint){
-        seller storage newSeller;
+        seller newSeller;
         newSeller.name          = _sellerName;
         newSeller.location      = _sellerLocation;
         sellerArr[_hashedEmail] = newSeller;
@@ -95,7 +95,7 @@ contract Manager {
     }
 
     function registerManufact(string _hashedEmail, string _manufactName,string _manufactLocation) public payable returns (uint){
-        manufact storage newManufact;
+        manufact newManufact;
         newManufact.name          = _manufactName;
         newManufact.location      = _manufactLocation;
         manufactArr[_hashedEmail] = newManufact;
